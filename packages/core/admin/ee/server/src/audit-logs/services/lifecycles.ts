@@ -59,6 +59,11 @@ export interface RegisterEventOptions {
    * is dropped.
    */
   allowUnknownActor?: boolean;
+  /**
+   * Receives the arguments passed to eventHub.emit(); returning false keeps the
+   * event out of the audit log. Listeners on the event hub still receive it.
+   */
+  shouldRecord?: (...args: any[]) => boolean;
 }
 
 const getEventMap = (events: string[]) => {
@@ -161,6 +166,13 @@ const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
       registration.kind === 'standard' && registration.options.allowUnknownActor === true;
 
     if (!systemOrigin && !user && !allowsUnknownActor) {
+      return null;
+    }
+
+    if (
+      registration.kind === 'standard' &&
+      registration.options.shouldRecord?.(...args) === false
+    ) {
       return null;
     }
 
