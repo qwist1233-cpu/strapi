@@ -43,9 +43,7 @@ const ApplicationInfoPage = () => {
     AdminSeatInfoCE,
     async () =>
       (
-        await import(
-          '../../../../../../ee/admin/src/pages/SettingsPage/pages/ApplicationInfoPage/components/AdminSeatInfo'
-        )
+        await import('../../../../../../ee/admin/src/pages/SettingsPage/pages/ApplicationInfoPage/components/AdminSeatInfo')
       ).AdminSeatInfoEE
   );
   const isAiEnabled = window.strapi.ai?.enabled !== false;
@@ -53,9 +51,7 @@ const ApplicationInfoPage = () => {
     AIUageDataCE,
     async () =>
       (
-        await import(
-          '../../../../../../ee/admin/src/pages/SettingsPage/pages/ApplicationInfoPage/components/AIUsage'
-        )
+        await import('../../../../../../ee/admin/src/pages/SettingsPage/pages/ApplicationInfoPage/components/AIUsage')
       ).AIUsage,
     {
       enabled: isAiEnabled,

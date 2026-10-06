@@ -10,11 +10,7 @@ import { useTracking } from '../../../features/Tracking';
 import { useSettingsMenu } from '../../../hooks/useSettingsMenu';
 
 type LinkId =
-  | 'content-releases'
-  | 'review-workflows'
-  | 'sso'
-  | 'auditLogs'
-  | 'auditLogs-purchase-page';
+  'content-releases' | 'review-workflows' | 'sso' | 'auditLogs' | 'auditLogs-purchase-page';
 
 type FeatureName = 'cms-content-releases' | 'review-workflows' | 'sso' | 'audit-logs';
 
